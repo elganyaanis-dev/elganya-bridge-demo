@@ -95,7 +95,7 @@ export function parseBridgeCommands(rawText: unknown): BridgeParseResult {
       const w = cmd + ' — confirmation renforcee requise';
       if (!warnings.includes(w)) warnings.push(w);
     }
-    commands.push(Object.freeze({ ...obj }) as BridgeCommand);
+    commands.push(Object.freeze({ ...obj }) as unknown as BridgeCommand);
   });
   return { ok: errors.length === 0, commands, errors, warnings };
 }
